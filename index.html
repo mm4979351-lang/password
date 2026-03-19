@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SecurePass Pro - Advanced Password Generator</title>
+        <meta name="description"
+            content="Professional password generator with crypto-secure randomness, strength analysis, history, and premium UI">
+        <link rel="stylesheet" href="advanced-perfect.css">
+        <link rel="manifest" href="data:application/manifest+json,{
+    "name": "SecurePass Pro",
+            "short_name": "SecurePass",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#f5f7fa",
+            "theme_color": "#00b894",
+            "icons": [{
+            "src":
+            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9Ijk2IiBmaWxsPSIjMDBiODk0Ii8+CjxwYXRoIGQ9Ik0xMjEuNyA2OS4yNUMxMjEuNyA2OS4yNSAxMjEuNzUgNjkuMjUgMTIxLjc1IDY5LjI1QzEyMS43NSA2OS4yNSAxMjEuNzUgNjkuMjUgMTIxLjc1IDY5LjI1TDEyMS43NSA2OS4yNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMjEuNyAxMjIuNzVDMTIxLjcgMTIyLjc1IDEyMS43NSAxMjIuNzUgMTIxLjc1IDEyMi43NUNxMC4wNSAwIDAuMDUgMC4wNWwwIDB6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+            }]
+            }">
+    </head>
+    <body>
+        <button id="themeToggle" class="theme-toggle"
+            title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+            🌙
+        </button>
+
+        <main class="container" role="main">
+            <header class="header">
+                <h1>SecurePass Pro</h1>
+                <p class="subtitle">Generate unbreakable passwords with
+                    military-grade security</p>
+            </header>
+
+            <section class="password-display" id="passwordDisplay"
+                role="textbox"
+                aria-label="Generated password"
+                aria-live="polite"
+                tabindex="0">
+                <button id="copyBtn" class="btn-copy"
+                    aria-label="Copy password to clipboard">
+                    📋 Copy
+                </button>
+            </section>
+
+            <div class="controls">
+                <div class="group">
+                    <label class="group-label" for="lengthSlider">Password Length</label>
+                    <div class="slider-container">
+                        <input type="range" id="lengthSlider" min="6" max="128"
+                            value="24"
+                            aria-valuemin="6" aria-valuemax="128"
+                            aria-valuenow="24">
+                        <span id="lengthValue" class="length-display">24</span>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <label class="group-label" for="modeSelect">Password Mode</label>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <select id="modeSelect" style="padding: 1rem; border-radius: 12px; border: 2px solid var(--border); background: var(--glass); color: var(--text-1); font-size: 1rem; cursor: pointer;">
+                            <option value="mixed">🔐 Mixed (Ultra-Hard)</option>
+                            <option value="numeric">🔢 Numeric Only</option>
+                            <option value="words">📝 Readable Words</option>
+                            <option value="words-hard">📝 Hard Words</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+
+                <div class="strength-container" aria-live="polite">
+                    <div class="strength-meter">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                    <div id="strengthLabel" class="strength-label">Click
+                        Generate to analyze</div>
+                    <div id="securityTips" class="security-tips">
+                        Generate your first password to see security analysis
+                        and tips.
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="btn-generate"
+                    aria-label="Generate secure password (Ctrl+Enter)">
+                    Generate Password
+                </button>
+            </div>
+
+            <section class="history" aria-label="Recent passwords">
+                <h2 class="history-title">Recent Passwords</h2>
+                <div id="historyList" class="history-list" role="list"></div>
+            </section>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
